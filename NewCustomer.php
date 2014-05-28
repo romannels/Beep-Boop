@@ -227,25 +227,10 @@ class DBInteract {
      */
     protected $db; // database handle
     protected $newcustomer; //NewCustomer object
-    /*
-    const ACCOUNTALLOW = NULL, ACCOUNTRECEIVABLE = 'y', ADDRESSMOD = 's';
-    const ALTCARRIER = 'd', ATTEMPTS = NULL, BROSEVIEW = 'd';
-    const CALCAVAILMETH = 'a', CATALOGNAME = 2, COD = NULL, CREDITALLOW = NULL;
-    const CREDITREQ = 'd', DISPLAYCIN = 'd', DISPLAYUOM = 'd';
-    const DISPPICKUPLOCATION = 'd', EMAILDOC = 2, ENDORDERMESSAGE = 'd';
-    const ENDORDERMESSAGETEXT = NULL, FREIGHTCALC = 0, HIDEIN = 'd';
-    const HOLDCODE = NULL, HOMEPAGE = 'd', INQUIRYONLY = 'n';
-    const MAXOPENINVOICES = 1000, MAXPAIDINVOICES = 1000;
-    const OPENDAYSBACKDATEAGE = 7, OPENDAYSBACKDATEINV = 7, ORDERCONFDOC = 1;
-    const ORDERCONFIRM = 'd', ORDERENTRY = 'y', PAIDDAYSBACKDATEAGE = 7;
-    const PLGROUPID = 10, POREQFL = 0, PWCHANGE = 'y', QUANTAVAIL = 'n';
-    const QUOTEENTRY = 'n', QUOTERELEASE = 'y', REVIEWCODE = NULL;
-    const SHIPREQFL = 0, SHOWQUANTLFAVAIL = 'n', SOLDTOMOD = 'n';
-    const STATUSDAYS = 31, STOCKAMOUNT = 'i';
-    */
+
     
    public function __Construct(NewCustomer $newcustomer) {
-        $this->newcustomer = $newcustomer; // assign object
+        $this->newcustomer = $newcustomer; // assign object to get the info for the new account from the user
         $this->db = self::newConnection(); //Connect to database
     }
     
@@ -260,8 +245,6 @@ class DBInteract {
      
      try{
         $db = new PDO("odbc:Driver={SQL Native Client};Server=$server;Database=$database; Uid=$uid;Pwd=$pwd;"); //connects to database and assigns it to the handle
-       // echo "<p class='text-success'>Apparently connected.</p><br />";   //debug statement
-                
      }     
      catch (PDOException $e) {
          die("<p class='text-error'>Could not connect to server</p>") . $e; // if it can't connect it throws this up
@@ -298,7 +281,7 @@ class DBInteract {
             //throws this up if it finds a match and then kills the program
         }
        } 
-       echo "<p class='text-success'>Customer added.</p>";
+       echo "<p class='text-success'>Customer added.</p>"; 
 }
  
  function DoppleGanger($copy) {
