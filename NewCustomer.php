@@ -253,10 +253,10 @@ class DBInteract {
 private static function newConnection() {
 //Static function to connect to database
     
-   $server = "10.1.100.11"; // server address
-   $database = "sfadmin_test"; // database name
-   $uid = "cms_test"; // user id
-   $pwd = "cms_test";// user password          
+   $server = "XXX.XXX.XXX.XXX"; // server address
+   $database = "TEST"; // database name
+   $uid = "TEST"; // user id
+   $pwd = "TEST";// user password          
     
     try{
        $db = new PDO("odbc:Driver={SQL Native Client};Server=$server;Database=$database; Uid=$uid;Pwd=$pwd;"); //connects to database and assigns it to the handle
